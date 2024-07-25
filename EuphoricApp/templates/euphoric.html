@@ -1,0 +1,242 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Euphoric Glow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    <style>
+        h1, h2 {
+            font-weight: bold;
+        }
+
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .head-image {
+            width: 100%;
+            height: 750px;
+            object-fit: cover;
+        }
+
+        .main-content {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(165, 151, 164);
+        }
+
+        .shop-now-btn {
+            background-color: #ff4081;
+            color: rgb(4, 3, 3);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .shop-txt {
+            margin-top: 5%;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .new-products {
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 576px) {
+            .main-content {
+                top: 30%;
+            }
+
+            .head-image {
+                height: auto;
+            }
+        }
+
+        .form-section {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #d892ba;
+            color: #eeeeee;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d892ba;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+
+      <!-- Navigation bar using Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'homePage' %}">Euphoric Glow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'homePage' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'aboutPage' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'productPage' %}">New Arrivals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contactPage' %}">Contact Us</a></li>
+                </ul>
+                <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                <div class="dropdown ms-2">
+                    <button class="btn btn-outline-primary cart-badge" type="button" id="cartButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartButton" id="cartDropdownMenu">
+                        <li><a class="dropdown-item" href="#">Your cart is empty</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal 
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                        <button class="btn btn-outline-success mt-2" type="button" id="searchSubmitButton">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    
+    <!-- Shop Button -->
+    <div class="container mt-5">
+        <section>
+            <img src="{% static 'images/main image.jpg' %}" alt="Euphoric Glow" class="head-image">
+            <div class="main-content">
+                <h1>Welcome to Euphoric Glow</h1>
+                <p>Embrace your natural beauty.</p>
+                <a href="{% url 'productPage' %}" class="shop-now-btn">Shop Now</a>
+            </div>
+        </section>
+    </div>
+
+    <p class="shop-txt">Shop</p>
+    <h2 id="new-arrivals" class="new-products">New Products</h2>
+
+    <!-- Products -->
+      <!-- Displaying products using Bootstrap cards -->
+    <div class="container my-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/product 1.jpg' %}" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Glow Serum</h5>
+                        <p class="card-text">ALL 3,800</p>
+                        <button class="btn add-to-cart-btn" data-name="Glow Serum" data-price="ALL 3,800" data-img="{% static 'images/product 1.jpg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/product 3.jpg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Moisturizer</h5>
+                        <p class="card-text">ALL 4,200</p>
+                        <button class="btn add-to-cart-btn" data-name="Moisturizer" data-price="ALL 4,200" data-img="{% static 'images/product 3.jpg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container">
+            <p>&copy; 2024 Euphoric Glow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

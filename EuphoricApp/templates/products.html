@@ -1,0 +1,218 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - Euphoric Glow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    <style>
+        h1 {
+            color: pink;
+            font-weight: bold;
+        }
+
+        .lead {
+            font-weight: bold;
+            margin-top: 5%;
+            font-size: 30px;
+        }
+
+        .product-card {
+            border: none;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            object-fit: cover;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e1e1e;
+        }
+
+        .product-price {
+            color: #ff4081;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'homePage' %}">Euphoric Glow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'homePage' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'aboutPage' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'productPage' %}">New Arrivals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contactPage' %}">Contact Us</a></li>
+                </ul>
+                <!--<button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                <div class="dropdown ms-2"> -->
+                    <button class="btn btn-outline-primary cart-badge" type="button" id="cartButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartButton" id="cartDropdownMenu">
+                        <li><a class="dropdown-item" href="#">Your cart is empty</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal 
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                        <button class="btn btn-outline-success mt-2" type="button" id="searchSubmitButton">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+
+    <!--Header-->
+    <header class="bg-light text-center py-5">
+        <h1 class="display-4">New Arrivals</h1>
+        <p class="lead">Discover Here Our New Products</p>
+    </header>
+
+    <!--Product Grid-->
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/new product1.jpeg' %}" class="card-img-top" alt="Micellar Water">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Micellar Water</h5>
+                        <p class="product-price">ALL 1,800</p>
+                        <button class="btn add-to-cart-btn" data-name="Micellar Water" data-price="ALL 1,800" data-img="{% static 'images/new product1.jpeg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/product 3.jpg' %}" class="card-img-top" alt="Moisturizer">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Moisturizer</h5>
+                        <p class="product-price">ALL 4,200</p>
+                        <button class="btn add-to-cart-btn" data-name="Moisturizer" data-price="ALL 4,200" data-img="{% static 'images/product 3.jpg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/product 2.jpg' %}" class="card-img-top" alt="Glow Serum">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Glow Serum</h5>
+                        <p class="product-price">ALL 3,800</p>
+                        <button class="btn add-to-cart-btn" data-name="Glow Serum" data-price="ALL 3,800" data-img="{% static 'images/product 2.jpg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/Super Pure.jpeg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Acne Serum</h5>
+                        <p class="product-price">ALL 1,290</p>
+                        <button class="btn add-to-cart-btn" data-name="Acne Serum" data-price="ALL 1,290" data-img="{% static 'images/Super Pure.jpeg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/product 5.jpg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Cleanser</h5>
+                        <p class="product-price">ALL 2,290</p>
+                        <button class="btn add-to-cart-btn" data-name="Cleanser" data-price="ALL 2,290" data-img="{% static 'images/product 5.jpg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/product 4.jpg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Daily Cleanser</h5>
+                        <p class="product-price">ALL 3,200</p>
+                        <button class="btn add-to-cart-btn" data-name="Daily Cleanser" data-price="ALL 3,200" data-img="{% static 'images/product 4.jpg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/image.jpeg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Naminacide</h5>
+                        <p class="product-price">ALL 1,990</p>
+                        <button class="btn add-to-cart-btn" data-name="Naminacide" data-price="ALL 1,990" data-img="{% static 'images/image.jpeg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/download (5).jpeg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Rice Toner</h5>
+                        <p class="product-price">ALL 3,590</p>
+                        <button class="btn add-to-cart-btn" data-name="Rice Toner" data-price="ALL 3,590" data-img="{% static 'images/download (5).jpeg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card product-card h-100">
+                    <img src="{% static 'images/download (6).jpeg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">Eye Cream</h5>
+                        <p class="product-price">ALL 4,290</p>
+                        <button class="btn add-to-cart-btn" data-name="Eye Cream" data-price="ALL 4,290" data-img="{% static 'images/download (6).jpeg' %}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 Euphoric Glow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

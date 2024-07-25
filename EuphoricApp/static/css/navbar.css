@@ -1,0 +1,89 @@
+body {
+    background-color: pink;
+    font-family: 'Source Serif Pro', serif;
+    color: #1e1e1e;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.navbar-brand {
+    font-family: 'Oswald', sans-serif;
+    color: #1e1e1e;
+}
+
+.add-to-cart-btn {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e73570;
+}
+
+footer {
+    background-color: pink;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.navbar .btn-outline-primary {
+    width:100px;
+    border:none;
+    color:black;
+}
+
+
+.navbar .btn-outline-primary .fas
+ {
+    font-size: 0.875rem; /* Adjust icon size */
+}
+
+
+.navbar .btn-outline-primary:hover {
+    background-color: pink;
+    border-color: pink;
+}
+
+.navbar .btn-outline-primary:hover .fas {
+    color: white; /* Change icon color to white for better visibility */
+}
+
+.cart-badge {
+    position: relative;
+}
+
+.cart-badge .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    padding: 3px 6px;
+}
+
+.dropdown-menu {
+    width: 300px;
+}
+
+.dropdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
